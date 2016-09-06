@@ -1,7 +1,7 @@
 body {
   background: #fff;
-  font-family: "Myriad Web", Verdana, Helvetica, Arial, sans-serif
-  font-size: 15px;
+  font-family: "Myriad Web", Verdana, Helvetica, Arial, sans-serif;
+  font-size: 10px;
   line-height: 1.7;
   margin: 0;
   padding: 30px;
@@ -88,4 +88,17 @@ ul {
 
 .dep-headcount {
   display: inline-block;
+}
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.title {
+  width: 160px;
+  margin-right: 10px;
+}
+
+.headcount {
+  width: 50px;
 }

@@ -44,16 +44,16 @@
       
       const DepartmentList = ({departments}) => (
         <div className='dep-list'>
-          {departments.map(department => <Department department={department}/>)}
+          {departments.map(department => <Department department={department} key={department.department}/>)}
         </div>
       );
       
       const Department = ({department}) => (
         <div className='dep'>
           <span className='dep-span'>
-            <input className='dep-checkbox' type='checkbox'/>
-            <p className='dep-title'>{department.department}</p>
-            <div className='dep-headcount'>100</div>
+            <input className='dep-checkbox checkbox' type='checkbox'/>
+            <p className='dep-title title'>{department.department}</p>
+            <div className='dep-headcount headcount'>100</div>
           </span>
           <JobList jobs={department.jobs}/>
         </div>
@@ -61,15 +61,15 @@
       
       const JobList = ({jobs}) => (
         <div className='job-list'>
-          {jobs.map(job => <Job job={job} />)}
+          {jobs.map(job => <Job job={job} key={job.title}/>)}
         </div>
       );
       
       const Job = ({job}) => (
         <span className='job'>
-          <input className='job-checkbox' type='checkbox'/>
-          <p className='job-title'>{job.title}</p>
-          <div className='job-headcount'>{job.headcount}</div>
+          <input className='job-checkbox checkbox' type='checkbox'/>
+          <p className='job-title title'>{job.title}</p>
+          <div className='job-headcount headcount'>{job.headcount}</div>
         </span>
       );
 
