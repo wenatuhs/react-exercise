@@ -68,17 +68,31 @@
         
         handleJobCheckChange (id) {
           return e => {
-            const checked = e.target.checked;
-            const {checkedList} = this.state;
-            checkedList[id] = checked;
-            this.setState({checkedList: checkedList});
+            const _checked = e.target.checked;
+            const {checked, checkedList} = this.state;
+            checkedList[id] = _checked;
+            const allChecked = checkedList.reduce((pre, cur) => pre && cur);
+            if (allChecked) {
+              this.setState({
+                checked: true,
+                checkedList: checkedList
+              });
+            } else if (!_checked && checked) {
+              this.setState({
+                checked: false,
+                checkedList: checkedList
+              });
+            } else {
+              this.setState({
+                checkedList: checkedList
+              });
+            }
           };
         }
         
         render () {
           const {department} = this.props;
           const {checked, checkedList} = this.state;
-          console.log(checkedList);
           return (
             <div className='dep'>
               <span className='dep-span'>
