@@ -35,11 +35,38 @@
         }
       ];
       
-      const JobBar = () => (
+      const JobBar = ({allJobs}) => (
         <div className='job-bar'>
           <span>招聘职位 <button>清空</button></span>
-          <CommentForm />
+          <DepartmentList departments={allJobs} />
         </div>
+      );
+      
+      const DepartmentList = ({departments}) => (
+        <div className='dep-list'>
+          {departments.map(department => <Department department={department}/>)}
+        </div>
+      );
+      
+      const Department = ({department}) => (
+        <div className='dep'>
+          <span>{department.department} <div>100</div></span>
+          <JobList jobs={department.jobs}/>
+        </div>
+      );
+      
+      const JobList = ({jobs}) => (
+        <div className='job-list'>
+          {jobs.map(job => <Job job={job} />)}
+        </div>
+      );
+      
+      const Job = ({job}) => (
+        <span className='job'>
+          <input type='checkbox'/>
+          <p>{job.title}</p>
+          <div>{job.headcount}</div>
+        </span>
       );
 
       class CommentForm extends React.Component {
@@ -89,7 +116,7 @@
       }
 
       ReactDOM.render(
-        <JobBar />,
+        <JobBar allJobs={allJobs}/>,
         document.getElementById('content')
       );
     </script>
