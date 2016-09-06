@@ -1,10 +1,19 @@
+html {
+  height: 100%;
+}
+
 body {
   background: #fff;
   font-family: "Myriad Web", Verdana, Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1;
   margin: 0;
-  padding: 30px;
+  padding: 0;
+  height: 100%;
+}
+
+div {
+  height: 100%;
 }
 
 a {
@@ -58,7 +67,46 @@ ul {
   padding-left: 30px;
 }
 
+.job-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+.job-bar {
+  overflow: hidden;
+  float: left;
+  width: 320px;
+  background-color: #5F7D8C;
+  padding: 20px;
+}
+
+.job-content {
+  overflow: hidden;
+}
+
+.bar-span {
+  height: 40px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.bar-title {
+  font-size: 20px;
+  font-weight: semibold;
+  color: #B0BEC5;
+  width: 220px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.bar-button {
+  vertical-align: middle;
+  width: 50px;
+}
+
 .job {
+  height: 28px;
+  margin-left: 24px;
   display: block;
 }
 
@@ -67,14 +115,22 @@ ul {
 }
 
 .job-title {
+  color: #B0BEC5;
   display: inline-block;
 }
 
 .job-headcount {
+  color: #B0BEC5;
   display: inline-block;
 }
 
+.dep {
+  height: auto;
+  padding-bottom: 10px;
+}
+
 .dep-span {
+  height: 32px;
   display: block;
 }
 
@@ -83,22 +139,35 @@ ul {
 }
 
 .dep-title {
+  font-weight: bold;
+  width: 245px!important;
+  color: #FFFFFF;
   display: inline-block;
 }
 
 .dep-headcount {
+  vertical-align: middle;
+  text-align: center!important;
+  color: #FFFFFF;
   display: inline-block;
+  background-color: #506A77;
+  width: 36px!important;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 12px;
 }
 
 .checkbox {
   margin-right: 10px;
+  color: #5F7D8C;
 }
 
 .title {
-  width: 160px;
+  width: 200px;
   margin-right: 10px;
 }
 
 .headcount {
   width: 50px;
+  text-align: right;
 }

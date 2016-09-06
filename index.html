@@ -49,10 +49,11 @@
         render () {
           const {allJobs} = this.props;
           return (
-            <div className='job-bar'>
-              <span>
-                <p>招聘职位</p>
-                <button onClick={() => this.clearAllChecks()}>清空</button>
+            <div>
+              <span className='bar-span'>
+                <p className='bar-title'>招聘职位</p>
+                <button className='bar-button'
+                  onClick={() => this.clearAllChecks()}>清空</button>
               </span>
               <DepartmentList ref='departmentList' departments={allJobs}/>
             </div>
@@ -161,7 +162,10 @@
       );
       
       ReactDOM.render(
-        <JobBar allJobs={allJobs}/>,
+        <div className='job-warp'>
+          <div className='job-bar'><JobBar allJobs={allJobs}/></div>
+          <div className='job-content'></div>
+        </div>,
         document.getElementById('content')
       );
     </script>
