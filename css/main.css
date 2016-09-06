@@ -1,6 +1,6 @@
 body {
   background: #fff;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Myriad Web", Verdana, Helvetica, Arial, sans-serif
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
@@ -56,4 +56,36 @@ p, ul {
 
 ul {
   padding-left: 30px;
+}
+
+.job {
+  display: block;
+}
+
+.job-checkbox {
+  display: inline-block;
+}
+
+.job-title {
+  display: inline-block;
+}
+
+.job-headcount {
+  display: inline-block;
+}
+
+.dep-span {
+  display: block;
+}
+
+.dep-checkbox {
+  display: inline-block;
+}
+
+.dep-title {
+  display: inline-block;
+}
+
+.dep-headcount {
+  display: inline-block;
 }

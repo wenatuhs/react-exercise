@@ -50,7 +50,11 @@
       
       const Department = ({department}) => (
         <div className='dep'>
-          <span>{department.department} <div>100</div></span>
+          <span className='dep-span'>
+            <input className='dep-checkbox' type='checkbox'/>
+            <p className='dep-title'>{department.department}</p>
+            <div className='dep-headcount'>100</div>
+          </span>
           <JobList jobs={department.jobs}/>
         </div>
       );
@@ -63,9 +67,9 @@
       
       const Job = ({job}) => (
         <span className='job'>
-          <input type='checkbox'/>
-          <p>{job.title}</p>
-          <div>{job.headcount}</div>
+          <input className='job-checkbox' type='checkbox'/>
+          <p className='job-title'>{job.title}</p>
+          <div className='job-headcount'>{job.headcount}</div>
         </span>
       );
 
