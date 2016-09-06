@@ -93,13 +93,15 @@
         render () {
           const {department} = this.props;
           const {checked, checkedList} = this.state;
+          const headcountList = department.jobs.map(job => job.headcount);
+          const totalHeadcount = headcountList.reduce((pre, cur) => pre + cur);
           return (
             <div className='dep'>
               <span className='dep-span'>
                 <input className='dep-checkbox checkbox' type='checkbox'
                   checked={checked} onClick={e => this.handleCheckChange(e)}/>
                 <p className='dep-title title'>{department.department}</p>
-                <div className='dep-headcount headcount'>100</div>
+                <div className='dep-headcount headcount'>{totalHeadcount}</div>
               </span>
               <JobList jobs={department.jobs} checkedList={checkedList}
                 handleJobCheckChange={this.handleJobCheckChange.bind(this)}/>
