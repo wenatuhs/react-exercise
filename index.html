@@ -44,81 +44,71 @@
       
       const DepartmentList = ({departments}) => (
         <div className='dep-list'>
-          {departments.map(department => <Department department={department} key={department.department}/>)}
+          {departments.map((department, idx) => <Department department={department} key={idx}/>)}
         </div>
       );
       
-      const Department = ({department}) => (
-        <div className='dep'>
-          <span className='dep-span'>
-            <input className='dep-checkbox checkbox' type='checkbox'/>
-            <p className='dep-title title'>{department.department}</p>
-            <div className='dep-headcount headcount'>100</div>
-          </span>
-          <JobList jobs={department.jobs}/>
-        </div>
-      );
+      class Department extends React.Component {
+        constructor (props) {
+          super(props);
+          this.state = {
+            checked: false,
+            checkedList: props.department.jobs.map(job => false)
+          };
+        }
+        
+        handleCheckChange (e) {
+          const checked = e.target.checked;
+          const {checkedList} = this.state;
+          this.setState({
+            checked: checked,
+            checkedList: checkedList.map(_checked => checked)
+          });
+        }
+        
+        handleJobCheckChange (id) {
+          return e => {
+            const checked = e.target.checked;
+            const {checkedList} = this.state;
+            checkedList[id] = checked;
+            this.setState({checkedList: checkedList});
+          };
+        }
+        
+        render () {
+          const {department} = this.props;
+          const {checked, checkedList} = this.state;
+          console.log(checkedList);
+          return (
+            <div className='dep'>
+              <span className='dep-span'>
+                <input className='dep-checkbox checkbox' type='checkbox'
+                  checked={checked} onClick={e => this.handleCheckChange(e)}/>
+                <p className='dep-title title'>{department.department}</p>
+                <div className='dep-headcount headcount'>100</div>
+              </span>
+              <JobList jobs={department.jobs} checkedList={checkedList}
+                handleJobCheckChange={this.handleJobCheckChange.bind(this)}/>
+            </div>
+          );
+        }
+      }
       
-      const JobList = ({jobs}) => (
+      const JobList = ({jobs, checkedList, handleJobCheckChange}) => (
         <div className='job-list'>
-          {jobs.map(job => <Job job={job} key={job.title}/>)}
+          {jobs.map((job, idx) => <Job job={job} checked={checkedList[idx]} key={idx} id={idx} handleJobCheckChange={handleJobCheckChange}/>)}
         </div>
       );
       
-      const Job = ({job}) => (
+      const Job = ({job, checked, id, handleJobCheckChange}) => (
         <span className='job'>
-          <input className='job-checkbox checkbox' type='checkbox'/>
+          <input className='job-checkbox checkbox' type='checkbox'
+            checked={checked} onClick={handleJobCheckChange(id)}/>
           <p className='job-title title'>{job.title}</p>
           <div className='job-headcount headcount'>{job.headcount}</div>
         </span>
       );
-
-      class CommentForm extends React.Component {
-        constructor () {
-          super();
-          this.state = {author: '', text: ''};
-        }
-
-        handleAuthorChange (e) {
-          this.setState({author: e.target.value});
-        }
-
-        handleTextChange (e) {
-          this.setState({text: e.target.value});
-        }
-
-        handleSubmit (e) {
-          e.preventDefault();
-          var author = this.state.author.trim();
-          var text = this.state.text.trim();
-          if (!text || !author) {
-            return;
-          }
-          console.log({author: author, text: text});
-          this.setState({author: '', text: ''});
-        }
-
-        render () {
-          return (
-            <form className="commentForm" onSubmit={e => this.handleSubmit(e)}>
-              <input
-                type="text"
-                placeholder="Your name"
-                value={this.state.author}
-                onChange={e => this.handleAuthorChange(e)}
-              />
-              <input
-                type="text"
-                placeholder="Say something..."
-                value={this.state.text}
-                onChange={e => this.handleTextChange(e)}
-              />
-              <input type="submit" value="Post" />
-            </form>
-          );
-        }
-      }
-
+      
       ReactDOM.render(
         <JobBar allJobs={allJobs}/>,
         document.getElementById('content')
