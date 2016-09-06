@@ -16,57 +16,6 @@ div {
   height: 100%;
 }
 
-a {
-  color: #4183c4;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-code {
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
-  font-size: 12px;
-  margin: 0 2px;
-  padding: 0 5px;
-}
-
-h1, h2, h3, h4 {
-  font-weight: bold;
-  margin: 0 0 15px;
-  padding: 0;
-}
-
-h1 {
-  border-bottom: 1px solid #ddd;
-  font-size: 2.5em;
-}
-
-h2 {
-  border-bottom: 1px solid #eee;
-  font-size: 2em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.2em;
-}
-
-p, ul {
-  margin: 15px 0;
-}
-
-ul {
-  padding-left: 30px;
-}
-
 .job-wrap {
   overflow: hidden;
   width: 100%;
@@ -75,9 +24,10 @@ ul {
 .job-bar {
   overflow: hidden;
   float: left;
-  width: 320px;
+  width: 326px;
   background-color: #5F7D8C;
   padding: 20px;
+  padding-left: 40px;
 }
 
 .job-content {
@@ -87,21 +37,37 @@ ul {
 .bar-span {
   height: 40px;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .bar-title {
   font-size: 20px;
   font-weight: semibold;
   color: #B0BEC5;
-  width: 220px;
+  width: 258px;
   margin-right: 10px;
   display: inline-block;
 }
 
 .bar-button {
+  border: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: semibold;
+  background-color: #5F7D8C;
   vertical-align: middle;
-  width: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  outline: none;
+}
+
+.bar-button:hover {
+  background-color: #6B8D9F;
+}
+
+.bar-button:active {
+  background-color: #506A77;
 }
 
 .job {
@@ -126,7 +92,7 @@ ul {
 
 .dep {
   height: auto;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .dep-span {
@@ -140,7 +106,7 @@ ul {
 
 .dep-title {
   font-weight: bold;
-  width: 245px!important;
+  width: 235px!important;
   color: #FFFFFF;
   display: inline-block;
 }
@@ -159,11 +125,10 @@ ul {
 
 .checkbox {
   margin-right: 10px;
-  color: #5F7D8C;
 }
 
 .title {
-  width: 200px;
+  width: 190px;
   margin-right: 10px;
 }
 
