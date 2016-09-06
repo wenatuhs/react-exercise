@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Exercise</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://unpkg.com/react@15.3.0/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.0/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel">
+      const allJobs = [
+        {
+          department: '工程研发部门',
+          jobs: [
+            {title: 'Mac 开发工程师', headcount: 9},
+            {title: 'iOS App 测试工程师', headcount: 17},
+            {title: 'Android 远程控制工程师', headcount: 61},
+            {title: 'Web 前端工程师', headcount: 31},
+            {title: 'Android 多媒体软件开发工程师', headcount: 2}
+          ]
+        },
+        {
+          department: '产品设计部门',
+          jobs: [
+            {title: '网页设计师', headcount: 47},
+            {title: 'ID / 工业设计师', headcount: 39},
+            {title: '视觉设计师 / GUI 平面设计师', headcount: 42},
+            {title: '平面设计师', headcount: 8}
+          ]
+        }
+      ];
+      
+      const JobBar = () => (
+        <div className='job-bar'>
+          <span>招聘职位 <button>清空</button></span>
+          <CommentForm />
+        </div>
+      );
+
+      class CommentForm extends React.Component {
+        constructor () {
+          super();
+          this.state = {author: '', text: ''};
+        }
+
+        handleAuthorChange (e) {
+          this.setState({author: e.target.value});
+        }
+
+        handleTextChange (e) {
+          this.setState({text: e.target.value});
+        }
+
+        handleSubmit (e) {
+          e.preventDefault();
+          var author = this.state.author.trim();
+          var text = this.state.text.trim();
+          if (!text || !author) {
+            return;
+          }
+          console.log({author: author, text: text});
+          this.setState({author: '', text: ''});
+        }
+
+        render () {
+          return (
+            <form className="commentForm" onSubmit={e => this.handleSubmit(e)}>
+              <input
+                type="text"
+                placeholder="Your name"
+                value={this.state.author}
+                onChange={e => this.handleAuthorChange(e)}
+              />
+              <input
+                type="text"
+                placeholder="Say something..."
+                value={this.state.text}
+                onChange={e => this.handleTextChange(e)}
+              />
+              <input type="submit" value="Post" />
+            </form>
+          );
+        }
+      }
+
+      ReactDOM.render(
+        <JobBar />,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
