@@ -35,18 +35,45 @@
         }
       ];
       
-      const JobBar = ({allJobs}) => (
-        <div className='job-bar'>
-          <span>招聘职位 <button>清空</button></span>
-          <DepartmentList departments={allJobs} />
-        </div>
-      );
+      class JobBar extends React.Component {
+        constructor (props) {
+          super(props);
+        }
+        
+        clearAllChecks () {
+          const departmentList = this.refs.departmentList.refs;
+          const departmentKeyList = Object.keys(departmentList);
+          departmentKeyList.forEach(key => departmentList[key].clearChecks());
+        }
+        
+        render () {
+          const {allJobs} = this.props;
+          return (
+            <div className='job-bar'>
+              <span>
+                <p>招聘职位</p>
+                <button onClick={() => this.clearAllChecks()}>清空</button>
+              </span>
+              <DepartmentList ref='departmentList' departments={allJobs}/>
+            </div>
+          );
+        }
+      };
       
-      const DepartmentList = ({departments}) => (
-        <div className='dep-list'>
-          {departments.map((department, idx) => <Department department={department} key={idx}/>)}
-        </div>
-      );
+      class DepartmentList extends React.Component {
+        constructor (props) {
+          super(props);
+        }
+        
+        render () {
+          const {departments} = this.props;
+          return (
+            <div className='dep-list'>
+              {departments.map((department, idx) => <Department department={department} key={idx} ref={`department-${idx}`}/>)}
+            </div>
+          );
+        }
+      };
       
       class Department extends React.Component {
         constructor (props) {
@@ -55,6 +82,14 @@
             checked: false,
             checkedList: props.department.jobs.map(job => false)
           };
+        }
+        
+        clearChecks () {
+          const {checkedList} = this.state;
+          this.setState({
+            checked: false,
+            checkedList: checkedList.map(checked => false)
+          });
         }
         
         handleCheckChange (e) {
