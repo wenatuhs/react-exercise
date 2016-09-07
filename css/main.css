@@ -111,6 +111,11 @@ div {
   display: inline-block;
 }
 
+.dep-icon {
+  font-size: 7pt!important;
+  margin-left: 10px;
+}
+
 .dep-headcount {
   vertical-align: middle;
   text-align: center!important;
