@@ -27,7 +27,7 @@ div {
   width: 326px;
   background-color: #5F7D8C;
   padding: 20px;
-  padding-left: 40px;
+  padding-left: 35px;
 }
 
 .job-content {
@@ -135,4 +135,51 @@ div {
 .headcount {
   width: 50px;
   text-align: right;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  color: #FFF;
+  background-color: #5F7D8C;
+  border: 1px solid #B0BEC5;
+  border-radius: 4px;
+  margin: -1px 12px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:not(:checked) + label span:after,
+input[type="checkbox"]:checked + label span:after {
+  position: absolute;
+  content: '✔';
+  text-align: center;
+  line-height: 12px;
+  font-size: 12px;
+  transition: all .15s;
+}
+
+input[type="checkbox"]:not(:checked) + label span:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+input[type="checkbox"]:checked + label span:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+input[type="checkbox"]:not(:checked) + label span:hover:after {
+  opacity: 0.5;
+  transform: scale(0.8);
+}
+
+input[type="checkbox"]:checked + label span:hover:after {
+  opacity: 1;
+  transform: scale(2);
 }
