@@ -22,7 +22,7 @@ div {
 }
 
 .job-bar {
-  overflow: hidden;
+  overflow: auto;
   float: left;
   width: 326px;
   background-color: #5F7D8C;
@@ -32,6 +32,7 @@ div {
 
 .job-content {
   overflow: hidden;
+  padding: 20px;
 }
 
 .bar-span {
