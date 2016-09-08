@@ -2,8 +2,8 @@
 本项目是某笔试的答卷，纯粹使用 React JS 实现了一个有一定交互性的侧栏。
 
 # 验收说明
-1. 确保有可用的网络连接
-2. 使用浏览器打开 index.html（较新版本的 Chrome 和 Safari 上测试通过）
+1. `git clone https://github.com/wenatuhs/react-exercise.git`
+2. `cd` 到项目根目录下，使用浏览器打开 index.html（较新版本的 Chrome 和 Safari 上测试通过）
 3. 在打开的页面上对功能进行逐一验收
 
 # 任务时间分配
