@@ -17,7 +17,6 @@ div {
 }
 
 .job-wrap {
-  overflow: hidden;
   width: 100%;
 }
 
@@ -26,19 +25,19 @@ div {
   float: left;
   width: 326px;
   background-color: #5F7D8C;
-  padding: 20px;
-  padding-left: 35px;
+  padding: 0px 20px 0px 35px;
 }
 
 .job-content {
-  overflow: hidden;
-  padding: 20px;
+  overflow: auto;
+  padding: 0px 20px 0px 20px ;
 }
 
 .bar-span {
   height: 40px;
   display: block;
-  margin-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
 
 .bar-title {
@@ -94,6 +93,10 @@ div {
 .dep {
   height: auto;
   padding-bottom: 15px;
+}
+
+.dep-list {
+  height: auto;
 }
 
 .dep-span {
